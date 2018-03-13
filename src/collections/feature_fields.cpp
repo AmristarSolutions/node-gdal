@@ -405,6 +405,7 @@ Local<Value> FeatureFields::get(OGRFeature *f, int field_index)
 	Nan::EscapableHandleScope scope;
 
 	if(!f->IsFieldSet(field_index)) return scope.Escape(Nan::Null());
+	if(f->IsFieldNull(field_index)) return scope.Escape(Nan::Null());
 
 	OGRFieldDefn *field_def = f->GetFieldDefnRef(field_index);
 	switch(field_def->GetType()) {
