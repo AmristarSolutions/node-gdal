@@ -2251,7 +2251,7 @@
         },
         {
             "file": "src/collections/feature_fields.cpp",
-            "line": 439,
+            "line": 440,
             "description": "Returns a field's value.",
             "example": [
                 "\n```\nvalue = feature.fields.get(0);\nvalue = feature.fields.get('field');```"
@@ -2273,7 +2273,7 @@
         },
         {
             "file": "src/collections/feature_fields.cpp",
-            "line": 480,
+            "line": 481,
             "description": "Returns a list of field name.",
             "itemtype": "method",
             "name": "getNames",
@@ -2288,7 +2288,7 @@
         },
         {
             "file": "src/collections/feature_fields.cpp",
-            "line": 627,
+            "line": 628,
             "description": "Parent feature",
             "readonly": "",
             "itemtype": "attribute",
