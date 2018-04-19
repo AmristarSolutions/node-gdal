@@ -185,6 +185,20 @@ Local<Value> Geometry::New(OGRGeometry *geom, bool owned)
 			return scope.Escape(MultiLineString::New(static_cast<OGRMultiLineString*>(geom), owned));
 		case wkbMultiPolygon:
 			return scope.Escape(MultiPolygon::New(static_cast<OGRMultiPolygon*>(geom), owned));
+
+		//sliently convert curves
+		case wkbCircularString:
+		case wkbCompoundCurve:
+		case wkbCurve:
+		case wkbMultiCurve:
+		case wkbMultiSurface:
+		case wkbSurface:
+		case wkbCurvePolygon:
+		//case wkbPolyhedralSurface:
+		//case wkbTIN:
+		//case wkbTriangle:
+			return Geometry::New(geom->getLinearGeometry(), owned);
+
 		default:
 			Nan::ThrowError("Tried to create unsupported geometry type");
 			return scope.Escape(Nan::Undefined());
