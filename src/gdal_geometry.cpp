@@ -194,9 +194,9 @@ Local<Value> Geometry::New(OGRGeometry *geom, bool owned)
 		case wkbMultiSurface:
 		case wkbSurface:
 		case wkbCurvePolygon:
-		case wkbPolyhedralSurface:
-		case wkbTIN:
-		case wkbTriangle:
+		//case wkbPolyhedralSurface:
+		//case wkbTIN:
+		//case wkbTriangle:
 			return Geometry::New(geom->getLinearGeometry(), owned);
 
 		default:
