@@ -185,6 +185,10 @@ Local<Value> Geometry::New(OGRGeometry *geom, bool owned)
 			return scope.Escape(MultiLineString::New(static_cast<OGRMultiLineString*>(geom), owned));
 		case wkbMultiPolygon:
 			return scope.Escape(MultiPolygon::New(static_cast<OGRMultiPolygon*>(geom), owned));
+
+		case wkbMultiSurface:
+			return scope.Escape(MultiPolygon::New(static_cast<OGRMultiPolygon*>(geom->getLinearGeometry()), owned));
+
 		default:
 			Nan::ThrowError("Tried to create unsupported geometry type");
 			return scope.Escape(Nan::Undefined());
