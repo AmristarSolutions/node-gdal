@@ -1,5 +1,5 @@
 {
-  "name": "amristar-gdal",
+  "name": "gdal",
   "version": "0.9.8",
   "description": "Bindings to GDAL (Geospatial Data Abstraction Library)",
   "license": "Apache-2.0",
